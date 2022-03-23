@@ -8,15 +8,19 @@ import {
   HStack,
   Text,
   Tooltip,
+  useColorModeValue,
 } from '@chakra-ui/react';
 import { FcHome, FcAbout } from 'react-icons/fc';
 import { Link } from 'react-router-dom';
 import { ColorModeSwitcher } from './ColorModeSwitcher';
 
 const Header = () => {
+
+  const bgColor=useColorModeValue('gray.200','');
+  const buttonBgColor=useColorModeValue('teal.200','');
   return (
     <>
-      <Flex justify="space-between" align="center" direction="row">
+      <Flex justify="space-between" align="center" direction="row" bg={bgColor} >
         <Box display="flex" alignItems="center" p="4">
           <Heading>
             <Text
@@ -30,14 +34,14 @@ const Header = () => {
           </Heading>
         </Box>
 
-        <HStack>
+        <HStack mr='4'>
           <Link to="/">
-            <Button leftIcon={<FcHome />} mr="4">
+            <Button  bgColor={buttonBgColor} _hover={{bgColor:'teal.300'}} leftIcon={<FcHome />} mr="4">
               Home
             </Button>
           </Link>
           <Link to="/about">
-            <Button leftIcon={<FcAbout />}>About</Button>
+            <Button bgColor={buttonBgColor} _hover={{bgColor:'teal.300'}} leftIcon={<FcAbout /> }>About</Button>
           </Link>
 
           <Tooltip hasArrow label="Dark Mode">

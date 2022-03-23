@@ -1,16 +1,18 @@
 import React from 'react';
-import { ChakraProvider, Flex, theme } from '@chakra-ui/react';
+import { ChakraProvider, Container, Flex, theme } from '@chakra-ui/react';
 
 import Header from './components/Header/Header';
 import Body from './components/Body/Body';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import About from './components/About/About';
+import bgImage from './assets/images/bgImage.jpg'
 
 function App() {
   return (
+    
     <Router>
       <ChakraProvider theme={theme}>
-        <Flex m="4" direction="column">
+        <Flex direction="column" m='0' p='0' h='full'>
           <Header />
           <Routes>
             <Route exact path="/" element={<Body />} />
@@ -19,6 +21,7 @@ function App() {
         </Flex>
       </ChakraProvider>
     </Router>
+    
   );
 }
 
